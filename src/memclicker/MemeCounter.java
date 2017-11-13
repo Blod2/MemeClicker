@@ -13,9 +13,11 @@ package memclicker;
 public class MemeCounter {
     
     private long Counter = 0L;
+    private long totalCounter = 0L;
     
     public synchronized void increaseCounter(long amount){
         Counter+=amount;
+        totalCounter+=amount;
     }
     
     public synchronized void decreaseCounter(long amount){
@@ -24,6 +26,10 @@ public class MemeCounter {
     
     public synchronized long getCounter(){
         return Counter;
+    }
+    
+    public synchronized long getTotalCounter(){
+        return totalCounter;
     }
     
 }

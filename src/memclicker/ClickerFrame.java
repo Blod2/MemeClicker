@@ -5,6 +5,10 @@
  */
 package memclicker;
 
+import java.util.Timer;
+import java.util.TimerTask;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author pp2
@@ -17,18 +21,43 @@ public class ClickerFrame extends javax.swing.JFrame {
     MemeOutputThread outThread;
     private int[] threadsArray = new int[7];
     
+    
     MemeCounter memeCounter;
     public ClickerFrame() {
         initComponents();
         memeCounter = new MemeCounter();
         
+        Timer t = new Timer();
+        t.scheduleAtFixedRate(timerTask, 0, 1000);
         for (int i=0;i<7;i++){
             threadsArray[i]=0;
         }
-        outThread = new MemeOutputThread(memeCounter, jLabel1, jLabelMPS, threadsArray);
+        outThread = new MemeOutputThread(memeCounter, jLabel1, jLabelMPS, threadsArray, jLabelRank);
         outThread.start();
     }
-
+     
+    //Timer task for timer
+    private TimerTask timerTask = new TimerTask(){
+		private volatile int time = -1;
+		
+		private Runnable refresher = new Runnable()
+		{
+			@Override
+			public void run ()
+			{
+				int t = time;
+				jLabelTimer.setText(String.format("%02d:%02d", t / 60, t % 60));
+			}
+		};
+		
+		@Override
+		public void run ()
+		{
+			time++;
+			SwingUtilities.invokeLater(refresher);
+		}
+        };
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,6 +74,14 @@ public class ClickerFrame extends javax.swing.JFrame {
         jLabelFn2 = new javax.swing.JLabel();
         jButtonFn3 = new javax.swing.JButton();
         jLabelFn3 = new javax.swing.JLabel();
+        jButtonFn4 = new javax.swing.JButton();
+        jLabelFn4 = new javax.swing.JLabel();
+        jButtonFn5 = new javax.swing.JButton();
+        jLabelFn5 = new javax.swing.JLabel();
+        jButtonFn6 = new javax.swing.JButton();
+        jLabelFn6 = new javax.swing.JLabel();
+        jButtonFn7 = new javax.swing.JButton();
+        jLabelFn7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -55,15 +92,22 @@ public class ClickerFrame extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabelTimer = new javax.swing.JLabel();
         jLabelMPS = new javax.swing.JLabel();
+        jLabelMPC = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabelRank = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Memes Clicker");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
             }
         });
 
-        jButtonFn1.setText("Позвать друга создавать мемесы");
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jButtonFn1.setText("Позвать друга создавать мемесы 40/+1");
         jButtonFn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonFn1ActionPerformed(evt);
@@ -72,7 +116,7 @@ public class ClickerFrame extends javax.swing.JFrame {
 
         jLabelFn1.setText("0");
 
-        jButtonFn2.setText("Нанять чувака, который тырит мэмы с одноклассников");
+        jButtonFn2.setText("Нанять чувака, который тырит мэмы с одноклассников 360/+4");
         jButtonFn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonFn2ActionPerformed(evt);
@@ -81,7 +125,7 @@ public class ClickerFrame extends javax.swing.JFrame {
 
         jLabelFn2.setText("0");
 
-        jButtonFn3.setText("Нанять битарда");
+        jButtonFn3.setText("Нанять битарда 960/+6");
         jButtonFn3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonFn3ActionPerformed(evt);
@@ -90,40 +134,102 @@ public class ClickerFrame extends javax.swing.JFrame {
 
         jLabelFn3.setText("0");
 
+        jButtonFn4.setText("Открыть группу в ВК 3200/+10 ");
+        jButtonFn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFn4ActionPerformed(evt);
+            }
+        });
+
+        jLabelFn4.setText("0");
+
+        jButtonFn5.setText("Создать канал в телеграмме 12800/+14");
+        jButtonFn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFn5ActionPerformed(evt);
+            }
+        });
+
+        jLabelFn5.setText("0");
+
+        jButtonFn6.setText("Создать имиджборду 51200/+16");
+        jButtonFn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFn6ActionPerformed(evt);
+            }
+        });
+
+        jLabelFn6.setText("0");
+
+        jButtonFn7.setText("Открыть ютуб-канал 100000/+20");
+        jButtonFn7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFn7ActionPerformed(evt);
+            }
+        });
+
+        jLabelFn7.setText("0");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonFn7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonFn6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonFn5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonFn4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonFn3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonFn2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonFn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelFn1)
-                    .addComponent(jLabelFn2)
-                    .addComponent(jLabelFn3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelFn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelFn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelFn3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelFn4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelFn5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelFn6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelFn7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonFn1)
                     .addComponent(jLabelFn1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButtonFn2)
                     .addComponent(jLabelFn2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButtonFn3)
                     .addComponent(jLabelFn3))
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonFn4)
+                    .addComponent(jLabelFn4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonFn5)
+                    .addComponent(jLabelFn5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonFn6)
+                    .addComponent(jLabelFn6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonFn7)
+                    .addComponent(jLabelFn7))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel2.setText("Текущее количество мемесов");
 
@@ -164,6 +270,8 @@ public class ClickerFrame extends javax.swing.JFrame {
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
+        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         jLabel3.setText("Статистика");
 
         jLabel4.setText("Мемесов за клик");
@@ -174,6 +282,12 @@ public class ClickerFrame extends javax.swing.JFrame {
 
         jLabelMPS.setText("0");
 
+        jLabelMPC.setText("0");
+
+        jLabel6.setText("Текущий ранг");
+
+        jLabelRank.setText("jLabel7");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -183,12 +297,15 @@ public class ClickerFrame extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelRank)
                     .addComponent(jLabelTimer)
-                    .addComponent(jLabelMPS))
-                .addGap(75, 75, 75))
+                    .addComponent(jLabelMPS)
+                    .addComponent(jLabelMPC))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,12 +315,31 @@ public class ClickerFrame extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabelTimer))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabelMPC))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabelMPS))
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabelRank))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 361, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -213,25 +349,29 @@ public class ClickerFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
+                        .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(99, Short.MAX_VALUE))
+                        .addGap(70, 70, 70)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         pack();
@@ -260,6 +400,26 @@ public class ClickerFrame extends javax.swing.JFrame {
         addFunctionThread(960,6,2);
         jLabelFn3.setText(Integer.toString(threadsArray[2]));
     }//GEN-LAST:event_jButtonFn3ActionPerformed
+
+    private void jButtonFn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFn4ActionPerformed
+        addFunctionThread(3200,10,3);
+        jLabelFn4.setText(Integer.toString(threadsArray[3]));
+    }//GEN-LAST:event_jButtonFn4ActionPerformed
+
+    private void jButtonFn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFn5ActionPerformed
+        addFunctionThread(12800,14,4);
+        jLabelFn5.setText(Integer.toString(threadsArray[4]));
+    }//GEN-LAST:event_jButtonFn5ActionPerformed
+
+    private void jButtonFn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFn6ActionPerformed
+        addFunctionThread(51200,16,5);
+        jLabelFn6.setText(Integer.toString(threadsArray[5]));
+    }//GEN-LAST:event_jButtonFn6ActionPerformed
+
+    private void jButtonFn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFn7ActionPerformed
+        addFunctionThread(100000,20,6);
+        jLabelFn7.setText(Integer.toString(threadsArray[6]));
+    }//GEN-LAST:event_jButtonFn7ActionPerformed
 
     
     /**
@@ -318,18 +478,30 @@ public class ClickerFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButtonFn1;
     private javax.swing.JButton jButtonFn2;
     private javax.swing.JButton jButtonFn3;
+    private javax.swing.JButton jButtonFn4;
+    private javax.swing.JButton jButtonFn5;
+    private javax.swing.JButton jButtonFn6;
+    private javax.swing.JButton jButtonFn7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelFn1;
     private javax.swing.JLabel jLabelFn2;
     private javax.swing.JLabel jLabelFn3;
+    private javax.swing.JLabel jLabelFn4;
+    private javax.swing.JLabel jLabelFn5;
+    private javax.swing.JLabel jLabelFn6;
+    private javax.swing.JLabel jLabelFn7;
+    private javax.swing.JLabel jLabelMPC;
     private javax.swing.JLabel jLabelMPS;
+    private javax.swing.JLabel jLabelRank;
     private javax.swing.JLabel jLabelTimer;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }

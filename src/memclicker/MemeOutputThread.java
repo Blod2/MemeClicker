@@ -56,6 +56,8 @@ public class MemeOutputThread extends Thread {
         long c = counter.getTotalCounter()/100000;
          if (c>=0 && c<=10) {
              rank.setText(ranks[(int)c]);
+         } else if (c>10) {
+             rank.setText(ranks[10]);
          }
     }
     

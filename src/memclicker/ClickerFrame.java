@@ -21,8 +21,8 @@ public class ClickerFrame extends javax.swing.JFrame {
     MemeOutputThread outThread;
     //array, witch contains count of threads for each function
     private int[] threadsArray = new int[7];
-    //Default starting value of memes per click = 1
-    private long MPC = 1;
+    //array, which contains count for mem per click buttons (perk buttons)
+    private int[] clickArray = new int[5];
     MemeCounter memeCounter;
     
     //Frame constructor
@@ -32,10 +32,11 @@ public class ClickerFrame extends javax.swing.JFrame {
         
         Timer t = new Timer();
         t.scheduleAtFixedRate(timerTask, 0, 1000);
-        for (int i=0;i<7;i++){
-            threadsArray[i]=0;
-        }
-        outThread = new MemeOutputThread(memeCounter, jLabel1, jLabelMPS, threadsArray, jLabelRank, MPC, jLabelMPC);
+        //threadsArray init
+        for (int i=0;i<7;i++) threadsArray[i]=0;
+        //clickArray init
+        for (int i=0;i<5;i++) clickArray[i]=0;
+        outThread = new MemeOutputThread(memeCounter, jLabel1, jLabelMPS, threadsArray, jLabelRank, jLabelMPC);
         outThread.start();
     }
      
@@ -60,7 +61,7 @@ public class ClickerFrame extends javax.swing.JFrame {
 			SwingUtilities.invokeLater(refresher);
 		}
         };
-    
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -336,7 +337,12 @@ public class ClickerFrame extends javax.swing.JFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButtonPr1.setText("jButton1");
+        jButtonPr1.setText("Прокачать троллинг 500/+1");
+        jButtonPr1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPr1ActionPerformed(evt);
+            }
+        });
 
         jLabelPr1.setText("0");
 
@@ -397,7 +403,7 @@ public class ClickerFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCreateMemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateMemeActionPerformed
-        memeCounter.increaseCounter(MPC);
+        memeCounter.increaseCounter(memeCounter.getMPC());
     }//GEN-LAST:event_jButtonCreateMemeActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
@@ -440,20 +446,37 @@ public class ClickerFrame extends javax.swing.JFrame {
         jLabelFn7.setText(Integer.toString(threadsArray[6]));
     }//GEN-LAST:event_jButtonFn7ActionPerformed
 
-    
+    private void jButtonPr1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPr1ActionPerformed
+        addOnclickMemeAmount(1,0,500);
+        jLabelPr1.setText(Integer.toString(clickArray[0]));
+    }//GEN-LAST:event_jButtonPr1ActionPerformed
+  
     /**
      * Optimizing a little bit. Starting a new thread that adding some memes to total counter.
      * @param value - memes needed to buy function
      * @param addValue - amount of memes added by function
      * @param arrayFNum - number of function in array
      */
-    
     private void addFunctionThread(int value, int addValue, int arrayFNum){
         if (memeCounter.getCounter()>=value){
             memeCounter.decreaseCounter(value);
         AdderThread add = new AdderThread(memeCounter, addValue);
         add.start();
         threadsArray[arrayFNum]++;
+        }
+    }
+    
+    /**
+     * Adding onclick amount for main button.
+     * @param mpcAddAmount amount on which MPC will increase
+     * @param arrayCNum number of perk in array
+     * @param price price of addition
+     */
+    private void addOnclickMemeAmount(int mpcAddAmount, int arrayCNum, long price){
+        if (memeCounter.getCounter()>=price){
+            memeCounter.increaseMPC(mpcAddAmount);
+            clickArray[arrayCNum]++;
+            memeCounter.decreaseCounter(price);
         }
     }
     

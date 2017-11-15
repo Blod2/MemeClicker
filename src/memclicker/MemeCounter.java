@@ -14,6 +14,8 @@ public class MemeCounter {
     
     private long Counter = 0L;
     private long totalCounter = 0L;
+    //Default starting value of memes per click = 1
+    private long MPC = 1;
     
     public synchronized void increaseCounter(long amount){
         Counter+=amount;
@@ -32,4 +34,11 @@ public class MemeCounter {
         return totalCounter;
     }
     
+    public synchronized void increaseMPC(int amount){
+        MPC+=amount;
+    }
+    
+     public synchronized long getMPC(){
+        return MPC;
+    }
 }

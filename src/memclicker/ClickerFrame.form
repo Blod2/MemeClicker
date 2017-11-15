@@ -442,8 +442,11 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="jButtonPr1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
+            <Property name="text" type="java.lang.String" value="&#x41f;&#x440;&#x43e;&#x43a;&#x430;&#x447;&#x430;&#x442;&#x44c; &#x442;&#x440;&#x43e;&#x43b;&#x43b;&#x438;&#x43d;&#x433; 500/+1"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonPr1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelPr1">
           <Properties>

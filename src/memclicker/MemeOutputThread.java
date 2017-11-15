@@ -33,16 +33,14 @@ public class MemeOutputThread extends Thread {
         "over 9000",
         "Тот самый мэмный Б-г"
     };
-    private long MPC;
     private JLabel mpc;
     
-    public MemeOutputThread(MemeCounter counter,JLabel labeloutput, JLabel mps, int[] array, JLabel rank, long MPC, JLabel mpc){
+    public MemeOutputThread(MemeCounter counter,JLabel labeloutput, JLabel mps, int[] array, JLabel rank, JLabel mpc){
         this.counter = counter;
         this.labelOutput = labeloutput;
         this.mps = mps;
         this.array = array;
         this.rank = rank;
-        this.MPC = MPC;
         this.mpc = mpc;
     }
     
@@ -54,7 +52,7 @@ public class MemeOutputThread extends Thread {
         }
         mps.setText(Integer.toString(currentMps));
         rankCheck();
-        mpc.setText(Long.toString(MPC));
+        mpc.setText(Long.toString(counter.getMPC()));
     }
     
     private void rankCheck(){

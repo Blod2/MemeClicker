@@ -19,6 +19,7 @@ public class ClickerFrame extends javax.swing.JFrame {
      * Creates new form ClickerFrame
      */
     MemeOutputThread outThread;
+    //array, witch contains count of threads for each function
     private int[] threadsArray = new int[7];
     //Default starting value of memes per click = 1
     private long MPC = 1;
@@ -34,7 +35,7 @@ public class ClickerFrame extends javax.swing.JFrame {
         for (int i=0;i<7;i++){
             threadsArray[i]=0;
         }
-        outThread = new MemeOutputThread(memeCounter, jLabel1, jLabelMPS, threadsArray, jLabelRank);
+        outThread = new MemeOutputThread(memeCounter, jLabel1, jLabelMPS, threadsArray, jLabelRank, MPC, jLabelMPC);
         outThread.start();
     }
      
@@ -396,7 +397,7 @@ public class ClickerFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCreateMemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateMemeActionPerformed
-        memeCounter.increaseCounter(1*MPC);
+        memeCounter.increaseCounter(MPC);
     }//GEN-LAST:event_jButtonCreateMemeActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed

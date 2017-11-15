@@ -8,7 +8,7 @@ package memclicker;
 /**
  *
  * @author pp2
- * Class that ceeps current meme counter.
+ * Class that keeps current meme counter.
  */
 public class MemeCounter {
     

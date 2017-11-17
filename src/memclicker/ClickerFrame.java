@@ -102,6 +102,14 @@ public class ClickerFrame extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jButtonPr1 = new javax.swing.JButton();
         jLabelPr1 = new javax.swing.JLabel();
+        jButtonPr2 = new javax.swing.JButton();
+        jButtonPr3 = new javax.swing.JButton();
+        jButtonPr4 = new javax.swing.JButton();
+        jButtonPr5 = new javax.swing.JButton();
+        jLabelPr2 = new javax.swing.JLabel();
+        jLabelPr3 = new javax.swing.JLabel();
+        jLabelPr4 = new javax.swing.JLabel();
+        jLabelPr5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Memes Clicker");
@@ -346,15 +354,61 @@ public class ClickerFrame extends javax.swing.JFrame {
 
         jLabelPr1.setText("0");
 
+        jButtonPr2.setText("Прокачать скилл в паинте 1000/+2");
+        jButtonPr2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPr2ActionPerformed(evt);
+            }
+        });
+
+        jButtonPr3.setText("Скачать смешную картинку 1500/+3");
+        jButtonPr3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPr3ActionPerformed(evt);
+            }
+        });
+
+        jButtonPr4.setText("Повысить свой мэдскиллз 2000/+4");
+        jButtonPr4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPr4ActionPerformed(evt);
+            }
+        });
+
+        jButtonPr5.setText("Повысить научную степень в кекмемологии 2500/+5");
+        jButtonPr5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPr5ActionPerformed(evt);
+            }
+        });
+
+        jLabelPr2.setText("0");
+
+        jLabelPr3.setText("0");
+
+        jLabelPr4.setText("0");
+
+        jLabelPr5.setText("0");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButtonPr1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButtonPr5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonPr4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonPr3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonPr2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonPr1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelPr1)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelPr1)
+                    .addComponent(jLabelPr2)
+                    .addComponent(jLabelPr3)
+                    .addComponent(jLabelPr4)
+                    .addComponent(jLabelPr5))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -364,7 +418,23 @@ public class ClickerFrame extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonPr1)
                     .addComponent(jLabelPr1))
-                .addContainerGap(308, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonPr2)
+                    .addComponent(jLabelPr2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonPr3)
+                    .addComponent(jLabelPr3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonPr4)
+                    .addComponent(jLabelPr4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonPr5)
+                    .addComponent(jLabelPr5))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -450,6 +520,26 @@ public class ClickerFrame extends javax.swing.JFrame {
         addOnclickMemeAmount(1,0,500);
         jLabelPr1.setText(Integer.toString(clickArray[0]));
     }//GEN-LAST:event_jButtonPr1ActionPerformed
+
+    private void jButtonPr2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPr2ActionPerformed
+        addOnclickMemeAmount(2,1,1000);
+        jLabelPr2.setText(Integer.toString(clickArray[1]));
+    }//GEN-LAST:event_jButtonPr2ActionPerformed
+
+    private void jButtonPr3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPr3ActionPerformed
+        addOnclickMemeAmount(3,2,1500);
+        jLabelPr3.setText(Integer.toString(clickArray[2]));
+    }//GEN-LAST:event_jButtonPr3ActionPerformed
+
+    private void jButtonPr4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPr4ActionPerformed
+       addOnclickMemeAmount(4,3,2000);
+        jLabelPr4.setText(Integer.toString(clickArray[3]));
+    }//GEN-LAST:event_jButtonPr4ActionPerformed
+
+    private void jButtonPr5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPr5ActionPerformed
+        addOnclickMemeAmount(5,4,2500);
+        jLabelPr5.setText(Integer.toString(clickArray[4]));
+    }//GEN-LAST:event_jButtonPr5ActionPerformed
   
     /**
      * Optimizing a little bit. Starting a new thread that adding some memes to total counter.
@@ -525,6 +615,10 @@ public class ClickerFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButtonFn6;
     private javax.swing.JButton jButtonFn7;
     private javax.swing.JButton jButtonPr1;
+    private javax.swing.JButton jButtonPr2;
+    private javax.swing.JButton jButtonPr3;
+    private javax.swing.JButton jButtonPr4;
+    private javax.swing.JButton jButtonPr5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -541,6 +635,10 @@ public class ClickerFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelMPC;
     private javax.swing.JLabel jLabelMPS;
     private javax.swing.JLabel jLabelPr1;
+    private javax.swing.JLabel jLabelPr2;
+    private javax.swing.JLabel jLabelPr3;
+    private javax.swing.JLabel jLabelPr4;
+    private javax.swing.JLabel jLabelPr5;
     private javax.swing.JLabel jLabelRank;
     private javax.swing.JLabel jLabelTimer;
     private javax.swing.JPanel jPanel1;

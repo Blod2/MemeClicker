@@ -419,9 +419,21 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButtonPr1" min="-2" pref="321" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="jButtonPr5" max="32767" attributes="0"/>
+                      <Component id="jButtonPr4" max="32767" attributes="0"/>
+                      <Component id="jButtonPr3" max="32767" attributes="0"/>
+                      <Component id="jButtonPr2" max="32767" attributes="0"/>
+                      <Component id="jButtonPr1" max="32767" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabelPr1" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabelPr1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelPr2" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelPr3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelPr4" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelPr5" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -434,7 +446,27 @@
                       <Component id="jButtonPr1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelPr1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="308" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButtonPr2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelPr2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButtonPr3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelPr3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButtonPr4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelPr4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButtonPr5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelPr5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="156" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -449,6 +481,58 @@
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelPr1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonPr2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#x41f;&#x440;&#x43e;&#x43a;&#x430;&#x447;&#x430;&#x442;&#x44c; &#x441;&#x43a;&#x438;&#x43b;&#x43b; &#x432; &#x43f;&#x430;&#x438;&#x43d;&#x442;&#x435; 1000/+2"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonPr2ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonPr3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#x421;&#x43a;&#x430;&#x447;&#x430;&#x442;&#x44c; &#x441;&#x43c;&#x435;&#x448;&#x43d;&#x443;&#x44e; &#x43a;&#x430;&#x440;&#x442;&#x438;&#x43d;&#x43a;&#x443; 1500/+3"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonPr3ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonPr4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#x41f;&#x43e;&#x432;&#x44b;&#x441;&#x438;&#x442;&#x44c; &#x441;&#x432;&#x43e;&#x439; &#x43c;&#x44d;&#x434;&#x441;&#x43a;&#x438;&#x43b;&#x43b;&#x437; 2000/+4"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonPr4ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonPr5">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#x41f;&#x43e;&#x432;&#x44b;&#x441;&#x438;&#x442;&#x44c; &#x43d;&#x430;&#x443;&#x447;&#x43d;&#x443;&#x44e; &#x441;&#x442;&#x435;&#x43f;&#x435;&#x43d;&#x44c; &#x432; &#x43a;&#x435;&#x43a;&#x43c;&#x435;&#x43c;&#x43e;&#x43b;&#x43e;&#x433;&#x438;&#x438; 2500/+5"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonPr5ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelPr2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelPr3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelPr4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelPr5">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>

@@ -34,6 +34,8 @@ public class MemeOutputThread extends Thread {
         "Тот самый мэмный Б-г"
     };
     private JLabel mpc;
+    ClickerFrame clickerFrame;
+    private boolean winFlag = true;
     
     public MemeOutputThread(MemeCounter counter,JLabel labeloutput, JLabel mps, int[] array, JLabel rank, JLabel mpc){
         this.counter = counter;
@@ -61,6 +63,10 @@ public class MemeOutputThread extends Thread {
              rank.setText(ranks[(int)c]);
          } else if (c>10) {
              rank.setText(ranks[10]);
+             if (winFlag){
+                 clickerFrame.showWinMessage();
+                 winFlag = false;
+             }
          }
     }
     
@@ -73,6 +79,10 @@ public class MemeOutputThread extends Thread {
         while (StopFlag){
             memeOutput();
         }
+    }
+    
+    public void setFrame(ClickerFrame clickerFrame){
+        this.clickerFrame = clickerFrame;
     }
     
 }
